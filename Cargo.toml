@@ -1,0 +1,9 @@
+[package]
+name = "my_keyboard_layouts"
+version = "0.1.0"
+authors = ["Michael Thomas <Michaelt293@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+kinesis_layout = { path = "../kinesis_layout" }
+rayon = "1.0"
