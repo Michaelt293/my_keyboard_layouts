@@ -21,5 +21,5 @@
 {intl-\}>{-lctrl}{x}{+lctrl}
 {lshift}{'}>{`}{`}{`}{enter}
 {rshift}{caps}>{-lshift}{'}{'}{'}{+lshift}
-{lalt}{k}>{-lshift}{m}{+lshift}{i}{c}{h}{a}{e}{l}{t}{2}{9}{3}{-lshift}{2}{+lshift}{g}{m}{a}{i}{l}{.}{c}{o}{m}
+{lalt}{k}>{t}{e}{s}{t}{.}{c}{o}{m}
 {lalt}{s}>{-lshift}{r}{+lshift}{e}{g}{a}{r}{d}{s}{,}{enter}{-lshift}{m}{+lshift}{i}{c}{h}{a}{e}{l}
