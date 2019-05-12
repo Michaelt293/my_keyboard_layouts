@@ -4,6 +4,7 @@ extern crate kinesis_layout;
 extern crate rayon;
 
 use std::convert::AsRef;
+use std::fs::create_dir_all;
 use std::fs::File;
 use std::io::Write;
 
@@ -77,8 +78,12 @@ fn main() {
     let w_colemak: &'static str = "w_qwerty.txt";
     let m_colemak: &'static str = "m_qwerty.txt";
 
+    fn layouts_dir() -> &'static str {
+        "layouts/"
+    };
+
     fn create_file(file_name: &str) -> File {
-        File::create("layouts/".to_owned() + file_name)
+        File::create(layouts_dir().to_owned() + file_name)
             .expect(&("Unable to create file: ".to_owned() + file_name))
     };
 
@@ -88,7 +93,7 @@ fn main() {
             .expect("Unable to write data")
     };
 
-    let system_file_names = [
+    let system_file_names_email = [
         (
             w_colemak,
             System::PC,
@@ -97,7 +102,11 @@ fn main() {
         (m_colemak, System::Mac, email),
     ];
 
-    system_file_names
+    create_dir_all(layouts_dir()).expect("could not create layouts dir");
+
+    system_file_names_email
         .par_iter()
-        .for_each(|sys_file_name| write_file(sys_file_name.0, sys_file_name.1, sys_file_name.2));
+        .for_each(|sys_name_email| {
+            write_file(sys_name_email.0, sys_name_email.1, sys_name_email.2)
+        });
 }
